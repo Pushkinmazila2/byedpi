@@ -1,6 +1,6 @@
 services:
   byedpi:
-    image: hufrea/byedpi
+    image: ghcr.io/Pushkinmazila2/byedpi:main
     command: ["--fake", "-1", "--md5sig"]
     restart: unless-stopped
     user: 1000:1000
