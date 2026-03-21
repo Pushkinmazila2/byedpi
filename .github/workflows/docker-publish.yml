@@ -7,7 +7,8 @@ on:
       - 'docker-compose.yaml'
       - 'README.md'
       - '.gitignore'
-
+  workflow_dispatch:
+  
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
@@ -43,3 +44,5 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      - name: Notify Dockand
+        run: curl -X POST "${{ secrets.DEPLOY_WEBHOOK_URL }}"
