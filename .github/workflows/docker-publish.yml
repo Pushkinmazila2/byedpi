@@ -2,7 +2,11 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ "main" ] # Замените на master, если основная ветка называется так
+    branches: [ "main" ]
+    paths-ignore:
+      - 'docker-compose.yaml'
+      - 'README.md'
+      - '.gitignore'
 
 env:
   REGISTRY: ghcr.io
