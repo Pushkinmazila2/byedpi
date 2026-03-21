@@ -44,5 +44,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      - name: Notify Dockand
-        run: curl -X POST "${{ secrets.DEPLOY_WEBHOOK_URL }}"
+      - name: Trigger Webhook
+        run: |
+          curl --retry 3 \
+               --retry-delay 5 \
+               --max-time 30 \
+               -X POST "${{ secrets.DEPLOY_WEBHOOK_URL }}"
