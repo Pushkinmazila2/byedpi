@@ -4,6 +4,7 @@ WORKDIR /usr/local/src/byedpi
 COPY . .
 RUN LDFLAGS=-static make
 
-FROM scratch AS ciadpi
+FROM docker.io/alpine AS ciadpi
+RUN apk add --no-cache curl
 COPY --from=build /usr/local/src/byedpi/ciadpi /bin/
 ENTRYPOINT ["/bin/ciadpi"]
