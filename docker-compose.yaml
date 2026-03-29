@@ -1,7 +1,7 @@
 services:
   byedpi:
     image: ghcr.io/pushkinmazila2/byedpi:main
-    command: ${COMMAND_STRATEGY}
+    command: ciadpi ${COMMAND_STRATEGY}
     restart: unless-stopped
     user: 1000:1000
     ports:
