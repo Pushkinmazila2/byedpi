@@ -3,6 +3,8 @@ services:
     image: tazihad/byedpi
     container_name: byedpi
     restart: unless-stopped
+    networks:
+      - s-ui_s-ui
     ports:
       - "127.0.0.1:1080:1080"
     # Аргументы передаются списком, чтобы избежать проблем с кавычками
